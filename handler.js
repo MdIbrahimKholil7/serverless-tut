@@ -1,7 +1,6 @@
 const serverless = require("serverless-http");
-const express = require("express");
-const app = express();
-
+const index = require("./src/index");
+const { app } = require("./src/index");
 app.get("/", (req, res, next) => {
   return res.status(200).json({
     message: "Hello from root!",
