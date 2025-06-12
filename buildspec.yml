@@ -15,3 +15,7 @@ phases:
       - npm run build
       - echo Deploying with Serverless
       - serverless deploy --stage $ENVIRONMENT --region $REGION --conceal --verbose
+package:
+  include:
+    - dist/**
+    - node_modules/**

@@ -11,11 +11,15 @@ functions:
     handler: dist/handler.handler # 👈 compiled output path
     events:
       - httpApi: "*"
-package:
-  exclude:
-    - handler.ts
-    - tsconfig.json
-    - buildspec.yml
-    - node_modules/**
-  include:
-    - dist/**
+plugins:
+  - serverless-esbuild
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: false
+    exclude: []
+    target: node20
+    platform: node
+    concurrency: 10
