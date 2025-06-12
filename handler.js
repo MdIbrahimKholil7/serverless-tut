@@ -13,6 +13,11 @@ app.get("/hello", (req, res, next) => {
     message: "Hello from path!",
   });
 });
+app.get("/test", (req, res, next) => {
+  return res.status(200).json({
+    message: "Test build route!",
+  });
+});
 
 app.use((req, res, next) => {
   return res.status(404).json({
