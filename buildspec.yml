@@ -6,13 +6,12 @@ phases:
       nodejs: 18
     commands:
       - echo Installing serverless
-      - npm install --silent --no-progress -g serverless
-      - echo Serverless install Successfully
-      - echo installing node modules
+      - npm install -g serverless
       - npm install
-      - echo node modules install successfully
+
   build:
     commands:
-      - echo Build started on `date`
-      - serverless deploy --stage  $ENVIRONMENT --region $REGION --conceal --verbose
-      - echo Build completed on `date`
+      - echo Building TypeScript
+      - npm run build
+      - echo Deploying with Serverless
+      - serverless deploy --stage $ENVIRONMENT --region $REGION --conceal --verbose
