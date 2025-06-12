@@ -8,7 +8,7 @@ provider:
 
 functions:
   api:
-    handler: dist/handler.handler # 👈 compiled output path
+    handler: dist/handler.js # 👈 compiled output path
     events:
       - httpApi: "*"
 
