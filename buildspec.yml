@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing serverless
+      - npm install --silent --no-progress -g serverless
+      - echo Serverless install Successfully
+      - echo installing node modules
+      - npm install
+      - echo node modules install successfully
+  build:
+    commands:
+      - echo Build started on `date`
+      - serverless deploy --stage  $ENVIRONMENT --region $REGION --conceal --verbose
+      - echo Build completed on `date`
